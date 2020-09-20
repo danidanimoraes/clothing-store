@@ -6,4 +6,8 @@ body{
         text-decoration: none;
         color: black;
     }
+
+    * {
+        box-sizing: border-box; // input inside form was overflowing border
+    }
 }
