@@ -51,6 +51,7 @@ class Menu extends React.Component {
                 {this.state.sections.map(({ id, ...sectionProps }) =>
                     // we don't need to pass Id as props
                     <MenuItem
+                        key={id}
                         {...sectionProps}>
                     </MenuItem>
                 )}
