@@ -5,11 +5,22 @@
     height: 70px;
     margin-bottom: 25px;
 
-    .logo-container{
-        height: 100%;
-        width: 70px;
-        padding: 25px;
+    .first-box{
+        display: flex;
+
+        .logo-container{
+            height: 100%;
+            width: 70px;
+            padding: 15px 25px 25px 25px
+        }
+        .welcome{
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            text-transform: uppercase;
+        }
     }
+    
     .options{
         width: 50%;
         height: 100%;
