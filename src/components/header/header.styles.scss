@@ -7,11 +7,12 @@
 
     .first-box{
         display: flex;
+        padding-left: 80px;
 
         .logo-container{
             height: 100%;
             width: 70px;
-            padding: 15px 25px 25px 25px
+            padding: 15px 25px 25px 10px;
         }
         .welcome{
             display: flex;
