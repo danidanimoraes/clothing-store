@@ -1,6 +1,5 @@
 import React from 'react';
 import './collection-item.styles.scss';
-import { withRouter } from 'react-router-dom';
 import CustomButton from '../custom-button/custom-button.component';
 import { connect } from 'react-redux';
 import { addCartItem } from '../../redux/cart/cart.actions';
