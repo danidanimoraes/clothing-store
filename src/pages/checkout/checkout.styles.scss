@@ -23,9 +23,22 @@
         }
     }
 
-    .total {
-        margin-top: 30px;
-        margin-left: auto;
-        font-size: 36px;
-      }
+    .payment-bottom{
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        align-items: center;
+
+        .total {
+            margin-top: 30px;
+            margin-left: auto;
+            font-size: 36px;
+        }
+
+        button{
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+    }
+    
 }
