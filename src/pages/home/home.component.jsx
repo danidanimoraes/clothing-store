@@ -1,11 +1,11 @@
 import React from 'react';
-import './home.styles.scss';
+import { HomePageContainer } from './home.styles';
 import Menu from './../../components/menu/menu.component';
 
 const HomePage = () => (
-    <div className="homepage">
+    <HomePageContainer>
         <Menu></Menu>
-    </div>
+    </HomePageContainer>
 );
 
 export default HomePage;
