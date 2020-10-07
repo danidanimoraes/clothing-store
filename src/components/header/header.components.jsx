@@ -8,7 +8,6 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { createStructuredSelector } from 'reselect';
 import { HeaderContainer, FirstBoxContainer, OptionsContainer, WelcomeContainer, OptionLink } from './header.styles';
-import { Link } from 'react-router-dom';
 
 const Header = ({ currentUser, hidden }) => {
     return (

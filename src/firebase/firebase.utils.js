@@ -46,6 +46,39 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 }
 
+export const convertCollectionsSnapshotToMap = ((querySnapshot) => {
+    const transformedCollection = querySnapshot.docs.map((documentSnapshot) => {
+        const { title, items } = documentSnapshot.data();
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: documentSnapshot.id,
+            title,
+            items
+        };
+    });
+
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {})
+});
+
+export const addcollectionAndDocs = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    // Batch write to have consistency. Either everything goes right or everything goes wrong.
+    const batch = firestore.batch();
+
+    objectsToAdd.forEach((object) => {
+        const newDocReference = collectionRef.doc();
+        batch.set(newDocReference, object);
+    });
+
+    // If commit succeeds, the promise returns null
+    return await batch.commit();
+}
+
 // Google Authentication
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({

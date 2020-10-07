@@ -5,16 +5,16 @@ const selectShop = (state) => state.shop;
 
 export const selectCollections = createSelector(
     selectShop,
-    (shop) => shop.shopData
+    (shop) => shop.collections
 )
 
 // not memoized because it depends on the dynamic argument collectionURLParam
 export const selectCollection = memoize((collectionURLParam) => createSelector(
     selectCollections,
-    (collections) => collections[collectionURLParam]
+    (collections) => { console.log("colls", collections); return collections ? collections[collectionURLParam] : null }
 ))
 
 export const selectCollectionsArray = createSelector(
     selectCollections,
-    (collections) => Object.values(collections)
+    (collections) => collections ? Object.values(collections) : []
 )

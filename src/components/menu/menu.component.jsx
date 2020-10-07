@@ -1,7 +1,6 @@
 import React from 'react';
 import MenuItem from '../menu-item/menu-item.component';
 import './menu.styles.scss';
-import menuReducer from '../../redux/menu/menu.reducer';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectSections } from '../../redux/menu/menu.selectors';

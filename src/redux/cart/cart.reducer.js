@@ -1,4 +1,3 @@
-import { addCartItem } from './cart.actions';
 import { CartActionTypes } from './cart.types';
 import { addToCart, decreaseQuantity, removeItemFromCart } from './cart.utils.js';
 

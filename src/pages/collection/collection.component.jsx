@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CartItem from '../../components/cart-item/cart-item.component';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
 

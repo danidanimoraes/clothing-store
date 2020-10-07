@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions'
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import { selectCollectionsArray } from './redux/shop/shop.selectors';
 
 // Saves state of the user
 class App extends React.Component {
@@ -29,7 +30,11 @@ class App extends React.Component {
           })
         });
       }
-      this.props.setCurrentUser(userAuth)
+      this.props.setCurrentUser(userAuth);
+
+      // Used to add shop data to Firestore only once. Keeping it for learning purposes.
+      // const objectsToAdd = this.props.collectionsArray.map(({ title, items }) => ({ title, items }))
+      // addcollectionAndDocs('collections', objectsToAdd)
 
     });
   }
@@ -58,7 +63,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsArray
 });
 
 const mapDispatchToProps = (dispatch) => {
