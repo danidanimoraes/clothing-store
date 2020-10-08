@@ -8,6 +8,7 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { createStructuredSelector } from 'reselect';
 import { HeaderContainer, FirstBoxContainer, OptionsContainer, WelcomeContainer, OptionLink } from './header.styles';
+import CartDropdownReduxContainer from '../cart-dropdown/cart-dropdown.container';
 
 const Header = ({ currentUser, hidden }) => {
     return (
@@ -37,7 +38,7 @@ const Header = ({ currentUser, hidden }) => {
                 <CartIcon></CartIcon>
             </OptionsContainer>
             {
-                hidden ? null : (<CartDropdown></CartDropdown>)
+                hidden ? null : (<CartDropdownReduxContainer></CartDropdownReduxContainer>)
             }
         </HeaderContainer>
     );
