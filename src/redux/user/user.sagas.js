@@ -66,7 +66,7 @@ export function* signUp(action) {
 
 export function* signInAfterSignUp(action) {
     const { displayName, user } = action.payload;
-    yield getSnapshotFromUserAuth(user, displayName);
+    yield getSnapshotFromUserAuth(user, { displayName });
 }
 
 export function* onGoogleSignInStart() {
