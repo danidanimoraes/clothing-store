@@ -7,7 +7,6 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.components';
 import SignInUp from './pages/sign-in-up/sign-in-up.component';
 import { connect } from 'react-redux';
-import { setCurrentUser } from './redux/user/user.actions'
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { selectCollectionsArray } from './redux/shop/shop.selectors';
@@ -38,10 +37,5 @@ const mapStateToProps = createStructuredSelector({
   collectionsArray: selectCollectionsArray
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setCurrentUser: (user) => dispatch(setCurrentUser(user))
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
