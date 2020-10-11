@@ -6,7 +6,6 @@ import ShopPage from './pages/shop/shop.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.components';
 import SignInUp from './pages/sign-in-up/sign-in-up.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions'
 import { createStructuredSelector } from 'reselect';
