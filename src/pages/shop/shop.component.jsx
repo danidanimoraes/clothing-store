@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectCollectionsIsFetching, selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors';
 import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
 import CollectionPageContainer from '../collection/collection.component';
 import CollectionsOverviewContainer from '../../components/collection-overview/collection-overview.container';

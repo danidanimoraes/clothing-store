@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCollectionsIsFetching, selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors';
+import { selectCollectionsIsFetching } from '../../redux/shop/shop.selectors';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import CollectionsOverview from '../../components/collection-overview/collection-overview.component';
 import { compose } from 'redux';

@@ -64,6 +64,16 @@ export const convertCollectionsSnapshotToMap = ((querySnapshot) => {
     }, {})
 });
 
+export const getcurrentUser = () => {
+    // Promise for sagas to deal with
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+            unsubscribe();
+            resolve(userAuth);
+        }, reject)
+    });
+}
+
 export const addcollectionAndDocs = async (collectionKey, objectsToAdd) => {
     const collectionRef = firestore.collection(collectionKey);
 

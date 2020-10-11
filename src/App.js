@@ -10,9 +10,13 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { selectCollectionsArray } from './redux/shop/shop.selectors';
+import { checkUserSession } from './redux/user/user.actions';
 
 // Saves state of the user
 class App extends React.Component {
+  componentDidMount() {
+    this.props.checkUserSession()
+  }
 
   render() {
     return (
@@ -37,5 +41,8 @@ const mapStateToProps = createStructuredSelector({
   collectionsArray: selectCollectionsArray
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession())
+})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
