@@ -15,34 +15,6 @@ import { selectCollectionsArray } from './redux/shop/shop.selectors';
 
 // Saves state of the user
 class App extends React.Component {
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot((snapshot) => {
-          // data of user just created or already existing user
-          this.props.setCurrentUser({
-            id: snapshot.id,
-            ...snapshot.data()
-          })
-        });
-      }
-      this.props.setCurrentUser(userAuth);
-
-      // Used to add shop data to Firestore only once. Keeping it for learning purposes.
-      // const objectsToAdd = this.props.collectionsArray.map(({ title, items }) => ({ title, items }))
-      // addcollectionAndDocs('collections', objectsToAdd)
-
-    });
-  }
-
-  componentWillUnmount() {
-    // Closes the subscription
-    this.unsubscribeFromAuth();
-  }
 
   render() {
     return (

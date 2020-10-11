@@ -80,7 +80,7 @@ export const addcollectionAndDocs = async (collectionKey, objectsToAdd) => {
 }
 
 // Google Authentication
-const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({
     prompt: 'select_account'
 })
