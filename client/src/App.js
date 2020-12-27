@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { GlobalStyle } from './global.styles';
-import HomePage from './pages/home/home.component';
-import ShopPage from './pages/shop/shop.component';
-import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.components';
-import SignInUp from './pages/sign-in-up/sign-in-up.component';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
+import Spinner from './components/spinner/spinner.component';
+
+const HomePage = lazy(() => import('./pages/home/home.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const SignInUp = lazy(() => import('./pages/sign-in-up/sign-in-up.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => { checkUserSession() },
@@ -21,15 +23,18 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route exact path="/signin"
-          render={() => currentUser ?
-            (<Redirect to="/"></Redirect>)
-            : (<SignInUp></SignInUp>)} />
-        <Route exact path="/checkout" component={CheckoutPage} />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/" component={HomePage} />
+
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/signin"
+            render={() => currentUser ?
+              (<Redirect to="/"></Redirect>)
+              : (<SignInUp></SignInUp>)} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+        </Suspense>
       </Switch>
-    </div>
+    </div >
   );
 }
 
