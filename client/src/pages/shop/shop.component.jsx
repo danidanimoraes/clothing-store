@@ -50,7 +50,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
     // .then((responseJson) => console.log("response", responseJson)) //  extremely nested object
 
     // }
-
+    throw Error;
     return (
         <div className='shop-page'>
             <Suspense fallback={<Spinner />}>
